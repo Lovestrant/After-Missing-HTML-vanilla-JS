@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation Assignment</title>
+        <!--
+            A Javascript function for validation of the input fields
+        -->
+        <script>
+            function validateInputs() {
+                var displayErrorMessage = document.getElementById("displayErrorMessage");
+                var displaySuccessMessage = document.getElementById("displaySuccessMessage");
+                var cardName = document.getElementById("cardName");
+                var cardNumber = document.getElementById("cardNumber");
+                var expirationMonth = document.getElementById("expirationMonth");
+                var expirationYear = document.getElementById("expirationYear");
+                var CVC = document.getElementById("CVC");
+
+                //Validate 
+                if(cardNumber.value.toString().length != 16) {
+                    displayErrorMessage.innerHTML = "Card Number must be 16 digits";
+                }else if(expirationMonth.value.toString().length != 2) {
+                    displayErrorMessage.innerHTML = "Expiration Month must have 2 digits";
+                }else if(expirationYear.value.toString().length != 4) {
+                    displayErrorMessage.innerHTML = "Expiration Year must have 4 digits";
+                }else if(CVC.value.toString().length != 3) {
+                    displayErrorMessage.innerHTML = "Expiration Month must have 3 digits";
+                }else {
+                    displaySuccessMessage.innerHTML = "Success Thank you";
+                }
+                
+                
+
+
+                        }
+        </script>
+
+</head>
+<body>
+    <h1>Hello, Fill the fields below</h1>
+    <h4 id="displayErrorMessage" style="color: red;margin-left: 10%;"></h4>
+     <form> 
+        <p>
+            <label>Name of card:</label>
+            <input type="text" id="cardName" style="width:20%; height: 30px;margin-left: 2%;" required/>
+        </p>
+    
+        <p>
+            <label>Number of card:</label>
+            <input type="number" id="cardNumber" style="width:20%; height: 30px;margin-left: 1%;" min="16" max="16" placeholder="Enter card Number" required/>
+        </p>
+    
+        <p>
+            <label>Expiration Month:</label>
+            <input type="number" id="expirationMonth" style="width:20%; height: 30px;margin-left: 0.2%;" max="2"placeholder="Enter Expiration Month"  required/>
+        </p>
+        <p>
+            <label>Expiration year:</label>
+            <input type="text" id="expirationYear" style="width:20%; height: 30px;margin-left: 1%;" max="4" placeholder="Enter Expiration Year"  required/>
+        </p>
+        <p>
+            <label>CVC:</label>
+            <input type="number"  id="CVC" style="width:20%; height: 30px; margin-left: 6%;"  placeholder="Enter CVC" required/>
+        </p>
+          <h4 id="displaySuccessMessage" style="color: green;margin-left: 10%;"></h4>
+        <div>
+            <button onclick="validateInputs()" id="Submit" style="text-align: center; margin-left: 10%;padding: 10px; color: rgb(52, 172, 212);">Click to submit</button>
+        </div>
+    </form>
+    
+</body>
+</html>
